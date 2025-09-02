@@ -1,7 +1,17 @@
 import React from "react";
 
 const ListGroup = () => {
-  const items = ["New York", "San Francisco", "Tokyo", "London", "Seoul"];
+  let items = ["New York", "San Francisco", "Tokyo", "London", "Seoul"];
+  items = [];
+
+  if (items.length === 0)
+    return (
+      <>
+        <h1>List</h1>
+        <p>No items found</p>
+      </>
+    );
+
   return (
     <>
       <h1>List</h1>
