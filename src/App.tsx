@@ -11,7 +11,9 @@ function App() {
         <h1>Hello</h1>
       </Alert>
 
-      <Button onClick={buttonFunc}>text here</Button>
+      <Button onClick={buttonFunc} color="primary">
+        text here
+      </Button>
     </div>
   );
 }
