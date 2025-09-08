@@ -1,19 +1,23 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 
 function App() {
-  const buttonFunc = () => {
-    console.log("clicked");
-  };
+  const [clicked, setClicked] = useState(false);
+
   return (
     <div>
-      <Alert>
-        <h1>Hello</h1>
-      </Alert>
+      {clicked && (
+        <Alert onClose={() => setClicked(false)}>
+          <h1>Button has been clicked!</h1>
+        </Alert>
+      )}
 
-      <Button onClick={buttonFunc} color="primary">
-        text here
-      </Button>
+      {!clicked && (
+        <Button onClick={() => setClicked(!clicked)} color="primary">
+          click here!
+        </Button>
+      )}
     </div>
   );
 }
