@@ -1,16 +1,13 @@
 import { useState } from "react";
 import "./ListGroup.css";
 
-// { items: [], heading: string}
 interface Props {
   items: string[];
   heading: string;
-  // (item: string) => void
   onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading, onSelectItem }: Props) {
-  // Hook
+const ListGroup = ({ items, heading, onSelectItem }: Props) => {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
@@ -21,7 +18,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
         {items.map((item, index) => (
           <li
             className={
-              selectedIndex === index
+              index === selectedIndex
                 ? "list-group-item active"
                 : "list-group-item"
             }
@@ -37,6 +34,6 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       </ul>
     </>
   );
-}
+};
 
 export default ListGroup;
