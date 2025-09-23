@@ -22,9 +22,13 @@ const Form = () => {
           type="text"
           className="form-control"
         />
-        {errors.name?.type === "required" && <p>The name field is required.</p>}
+        {errors.name?.type === "required" && (
+          <p className="text-danger">The name field is required.</p>
+        )}
         {errors.name?.type === "minLength" && (
-          <p>The name must be at least 3 characters long</p>
+          <p className="text-danger">
+            The name must be at least 3 characters long
+          </p>
         )}
       </div>
       <div className="mb-3">
