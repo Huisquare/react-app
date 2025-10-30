@@ -1,14 +1,19 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
-const connect = () => console.log("Connecting");
-
-const disconnect = () => console.log("Disconnecting");
+interface User {
+  // dont need to type out all the user properties if we are not going to use them from the response
+  id: number;
+  name: string;
+}
 
 function App() {
-  useEffect(() => {
-    connect();
+  const [users, setUsers] = useState([]);
 
-    return () => disconnect();
+  useEffect(() => {
+    axios
+      .get<User[]>("https://jsonplaceholder.typicode.com/users")
+      .then((res) => console.log(res.data[0].name));
   });
 
   return <div></div>;
